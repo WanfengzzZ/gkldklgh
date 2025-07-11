@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .profile-card {
+      transition: all 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-2px);
+    }
+    .menu-item {
+      transition: all 0.2s ease;
+    }
+    .menu-item:hover {
+      background-color: #f3f4f6;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-md mx-auto p-4">
+    <!-- 个人信息卡片 -->
+    <div class="bg-white rounded-xl shadow-md p-6 mb-6 profile-card">
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+               class="w-20 h-20 rounded-full object-cover border-2 border-blue-500">
+          <div class="absolute bottom-0 right-0 bg-blue-500 rounded-full p-1">
+            <i class="fas fa-camera text-white text-xs"></i>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-800">张小明</h2>
+          <p class="text-gray-500">@zhangxiaoming</p>
+          <div class="flex space-x-2 mt-1">
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">VIP会员</span>
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">已认证</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between mt-4 pt-4 border-t border-gray-100">
+        <div class="text-center">
+          <p class="text-gray-500 text-sm">关注</p>
+          <p class="font-bold text-gray-800">128</p>
+        </div>
+        <div class="text-center">
+          <p class="text-gray-500 text-sm">粉丝</p>
+          <p class="font-bold text-gray-800">356</p>
+        </div>
+        <div class="text-center">
+          <p class="text-gray-500 text-sm">获赞</p>
+          <p class="font-bold text-gray-800">1.2k</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能菜单 -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
+      <div class="menu-item p-4 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="bg-blue-100 p-2 rounded-lg mr-3">
+            <i class="fas fa-cog text-blue-500"></i>
+          </div>
+          <span>账号设置</span>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </div>
+      <div class="menu-item p-4 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="bg-purple-100 p-2 rounded-lg mr-3">
+            <i class="fas fa-lock text-purple-500"></i>
+          </div>
+          <span>隐私设置</span>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </div>
+      <div class="menu-item p-4 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="bg-green-100 p-2 rounded-lg mr-3">
+            <i class="fas fa-bell text-green-500"></i>
+          </div>
+          <span>通知设置</span>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </div>
+      <div class="menu-item p-4 flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="bg-yellow-100 p-2 rounded-lg mr-3">
+            <i class="fas fa-question-circle text-yellow-500"></i>
+          </div>
+          <span>帮助与反馈</span>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </div>
+    </div>
+
+    <!-- 退出按钮 -->
+    <button class="w-full bg-white text-red-500 font-medium py-3 px-4 rounded-xl shadow-md hover:bg-red-50 transition">
+      退出登录
+    </button>
+  </div>
+
+  <script>
+    // 点击退出按钮事件
+    document.querySelector('button').addEventListener('click', function() {
+      if(confirm('确定要退出登录吗？')) {
+        // 执行退出登录逻辑
+        alert('已退出登录');
+        // 实际应用中这里应该是跳转到登录页
+      }
+    });
+
+    // 点击菜单项跳转
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const text = this.querySelector('span').textContent;
+        alert(`跳转到${text}页面`);
+        // 实际应用中这里应该是路由跳转
+      });
+    });
+
+    // 点击头像编辑
+    document.querySelector('img').addEventListener('click', function() {
+      alert('打开头像编辑');
+    });
+  </script>
+</body>
+</html>
+  
